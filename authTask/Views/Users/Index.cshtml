@@ -1,0 +1,34 @@
+﻿@model IEnumerable<User>
+
+<h1>All Users</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>User name</td>
+            <td>Password</td>
+            <td>Created at</td>
+            <td>Status</td>
+            <td>Activate</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.Password</td>
+                <td>@item.CreatedAt</td>
+                <td>@item.IsActive</td>
+                <td>
+                    <form asp-action="NonActive">
+                        <input type="hidden" name="userId" value="@item.UserId" />
+                        <button type="submit" class="btn btn-primary">Activate</button>
+                    </form>
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+
+</table>

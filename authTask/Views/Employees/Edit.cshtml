@@ -1,0 +1,21 @@
+﻿@model Employee
+<h1>Edit employee</h1>
+
+<form asp-controller="Employees" asp-action="Update">
+	<div class="my-3">
+		<label>Name</label>
+		<input type="text" class="form-control" name="Name" value="@Model.Name"/>
+	</div>
+
+	@Html.HiddenFor(Employee => Employee.Id)
+
+	<div class="my-3">
+		<label>Email</label>
+		<input type="Email" class="form-control" name="Email" value="@Model.Email"/>
+	</div>
+	<div class="my-3">
+		<label>Password</label>
+		<input type="Password" class="form-control" name="Password" value="@Model.Password"/>
+	</div>
+	<button type="submit" class="btn btn-outline-info">Update</button>
+</form>
